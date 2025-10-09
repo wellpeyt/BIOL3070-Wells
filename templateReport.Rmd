@@ -3,15 +3,15 @@ title: "Untitled"
 author: "Your Name Here"
 date: "2025-??-??"
 output:
-  github_document:
+  pdf_document:
     toc: true
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
+##### R
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -26,7 +26,9 @@ summary(cars)
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+plot(pressure,col ="Green")
 ```
-
+```
+x <- 10
+```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
