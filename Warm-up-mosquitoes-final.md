@@ -101,7 +101,7 @@ arrows(duration$lo, bp, duration$hi, bp,
        angle=90, code=3, length=0.05, col="black", xpd=TRUE)
 ```
 
-<img src="Warm-up-mosquitoes-softdeadlinefinal_files/figure-gfm/viremia-1.png" style="display: block; margin: auto auto auto 0;" />
+<img src="Warm-up-mosquitoes-final_files/figure-gfm/viremia-1.png" style="display: block; margin: auto auto auto 0;" />
 
 # STUDY QUESTION and HYPOTHESIS
 
@@ -233,7 +233,7 @@ barplot(height = counts1,
         xlim = xlim_use)
 ```
 
-![](Warm-up-mosquitoes-softdeadlinefinal_files/figure-gfm/first-analysis-1.png)<!-- -->
+![](Warm-up-mosquitoes-final_files/figure-gfm/first-analysis-1.png)<!-- -->
 
 ``` r
 par(op)
