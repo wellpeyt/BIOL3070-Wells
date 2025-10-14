@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Peyton Wells
-2025-10-11
+2025-10-14
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -18,37 +18,40 @@ Peyton Wells
 - [DISCUSSION](#discussion)
   - [Interpretation of 1st analysis-
     Barplot](#interpretation-of-1st-analysis--barplot)
-  - [Interpretation of 2nd analysis- Linear
-    Model](#interpretation-of-2nd-analysis--linear-model)
+  - [Interpretation of 2nd analysis- Generalized Linear
+    Model](#interpretation-of-2nd-analysis--generalized-linear-model)
 - [CONCLUSION](#conclusion)
 - [REFERENCES](#references)
 
 # ABSTRACT
 
-This report analyzes mosquito blood meal samples collected from regions
-around the Salt Lake City area to identify which bird species may be
-acting as amplifying hosts for the West Nile virus (WNV). Sequencing the
-DNA of these mosquitos showed that House finches and American robins
-were common dominant hosts. Their high frequency of being carriers for
-the West Nile virus suggest these species are the key species for
-transmission in the area. Better understanding these feeding patterns
-could improve early detection and moquito control for higher risk
-habitats and populations.
+We analyzed mosquito blood meal samples collected from regions around
+the Salt Lake City area to identify which bird species may be acting as
+amplifying hosts for the West Nile virus (WNV). Sequencing the DNA of
+these mosquitos showed that House finches in particular and other
+species such as the House sparrow and American robins were most common
+blood meals for the mosquitos and also the most dominant hosts of
+detectable viremia. Their high frequency of being carriers for the West
+Nile virus suggest these species are the key species for transmission in
+the area. Better understanding these feeding patterns could improve
+early detection and mosquito control for higher risk habitats and
+populations.
 
 # BACKGROUND
 
 West Nile virus (WNV) is a mosquito-born virus that typically passes
-between *Culex* mosquitos and birds also known as avian hosts (Centers
-for Disease Control and Prevention, 2025). Humans and other mammals
-serve a particular role in being a “dead-end” host because their blood
-viral levels are too low to re-infect mosquitos so transmission stops
-(Chancey, 2015). Thie virus was first detected in North America in 1999
-and has since become endemic across much fo the United States and Utah
-(Hadfield, 2019).
+between *Culex* mosquitos and birds also known as avian hosts. Symptoms
+of the virus include severe fever, disorientation, and paralysis
+(Centers for Disease Control and Prevention, 2025). Humans and other
+mammals serve a particular role in being a “dead-end” host because their
+blood viral levels are too low to re-infect mosquitos so transmission
+stops (Chancey, 2015). Thie virus was first detected in North America in
+1999 and has since become endemic across much fo the United States and
+Utah (Hadfield, 2019).
 
 Transmission of the virus occurs when infected mosquitos feed on birds
-that culture enough viremia to spread the virus further. IDentifying
-which bird speceis act as amplifying hosts is essential and important
+that culture enough viremia to spread the virus further. Identifying
+which bird species act as amplifying hosts is essential and important
 for understanding local transmission and predicting outbreak risk.
 Previous experiments have shown that species such as the American robin
 and House finch sustain higher levels of viremia and infect mosquitos
@@ -127,8 +130,9 @@ downtown and suburbs surrounding the city. The use of Carbon dioxide and
 Gravid traps were used in attracting the mosquitos. From the blood-fed
 females, DNA was extracted from each mosquito to determine the host
 species. PCR amplification techniques were used to multiply the
-mitochondrial cytochrom b sequences of the blood and then compared
-against the “BLAST” library to confirm the host identity and confidence.
+mitochondrial cytochrom b sequences of the blood, sequenced using
+“Min-Ion” and then compared against the “BLAST” library to confirm the
+host identity and confidence.
 
 Host identity data were matched with local West Nile test results from
 the same trap sites. Analyses were completed using R script using base
@@ -137,14 +141,16 @@ the frequency of each bird host between virus positive and virus
 negative locations. A linear regression model was then used to test
 whether the number of House finch blood meals predicted the proportion
 of West Nile virus positive sites. Significance of the results were
-assessed using a p-value of 0.05. Mini-tab output was also utilized to
-verify regression coefficients and residual patterns.
+assessed using a 95% confidence interval. Mini-tab output was also
+utilized to verify regression coefficients and residual patterns.
 
 ## Bar Plot Comparing Blood Meals and Virus Positive
 
 We compared the number of mosquito blood meals from each host species
-between different locations with positive and nonpositive counts of West
-Nile virus.
+between different locations with positive and non positive counts of
+West Nile virus. A Bar plot was chosen because it easily displays
+species type with respective detectable viremia in an understandable and
+visual way.
 
 ``` r
 ## import counts_matrix: data.frame with column 'loc_positives' (0/1) and host columns 'host_*'
@@ -246,7 +252,9 @@ host_species_colors <- species_colors
 
 It was tested whether the presence of House finch blood meals predicts
 whether a location was West Nile positive. Does house finch have an
-effect by location positive +/- (binary)?
+effect by location positive +/- (binary)? A general linear model was
+used over linear regression because the data can be continuous, binary,
+or count without requiring a normal distribution.
 
 ``` r
 #glm with house finch alone against binary +/_
@@ -327,10 +335,10 @@ Sparrows are the most common host species in mosquito blood meals. These
 areas also had the most West Nile positive supporting the hypothesis
 that these birds are likely amplifying host in the Salt Lake City area.
 
-## Interpretation of 2nd analysis- Linear Model
+## Interpretation of 2nd analysis- Generalized Linear Model
 
 The second analysis showed a linear association between the number of
-house finch blood meals and the likelihood of West Nile positive cases.
+House finch blood meals and the likelihood of West Nile positive cases.
 There appears to be a small but significant role that House finches play
 in the transmission of the West Nile Virus.
 
@@ -338,10 +346,11 @@ in the transmission of the West Nile Virus.
 
 This analysis highlights the importance that a few common bird species
 have in maintaining West Nile virus transmission within in Salt Lake
-City. House finches and American robins appear to be consistent
-amplifying host, confirming that local ecology strongly shapes disease
-characteristics. Continued monitoring of mosquito feeding patterns can
-help target key areas where virus amplification is most likely to occur.
+City. House finches, House Sparrows, and American robins appear to be
+consistent amplifying host, confirming that local ecology strongly
+shapes disease characteristics. Continued monitoring of mosquito feeding
+patterns can help target key areas where virus amplification is most
+likely to occur and affect the greater ecosystem.
 
 # REFERENCES
 
@@ -370,4 +379,4 @@ help target key areas where virus amplification is most likely to occur.
 
 6.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
     such as plot() and to correct syntax errors, and recommendations to
-    improve document. Accessed 2025-10-11.
+    improve document. Accessed 2025-10-14.
